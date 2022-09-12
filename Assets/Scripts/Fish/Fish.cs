@@ -28,8 +28,8 @@ public class Fish : MonoBehaviour
     private void Awake()
     {
         myCollider = GetComponent<CircleCollider2D>();
-        myRend = GetComponent<SpriteRenderer>();
-        screenLeft = Camera.main.ScreenToWorldPoint(Vector3.zero).x;
+        myRend = GetComponentInChildren<SpriteRenderer>();
+        screenLeft = Camera.main.ScreenToWorldPoint(Vector3.zero).x; //Horizontal position in bounds
     }
     public void ResetFish()
     {
@@ -37,10 +37,10 @@ public class Fish : MonoBehaviour
         {
             tweener.Kill(false);
         }
-        float num = UnityEngine.Random.Range(type.minLength, type.maxLength);
+        float num = UnityEngine.Random.Range(type.minLength, type.maxLength);//vertical position in bounds
         myCollider.enabled = true;
         Vector3 position = transform.position;
-        position.y = num;
+        position.y = num; 
         position.x = screenLeft;
         transform.position = position;
 
