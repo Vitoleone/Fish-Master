@@ -17,7 +17,7 @@ public class Hook : MonoBehaviour
     private int strength;
     private int fishCount;
 
-    private bool canMove = true;
+    private bool canMove = false;
 
     List<Fish> hookedFishes;
 
@@ -43,8 +43,8 @@ public class Hook : MonoBehaviour
     }
     public void StartFishing()
     {
-        length = -50;
-        strength = 3;//max number of fishes that can hooked
+        length = IdleManager.instance.length - 20;
+        strength = IdleManager.instance.strength;//max number of fishes that can hooked
         fishCount = 0;
         float time = (-length) * 0.1f;
 
@@ -66,6 +66,7 @@ public class Hook : MonoBehaviour
                     }
                 });
         });
+        ScreenManager.instance.ChangeScreen(Screens.GAME);
 
         myCollider.enabled = false;
         canMove = true;
@@ -94,6 +95,8 @@ public class Hook : MonoBehaviour
                 hookedFishes[i].ResetFish();
                 num += hookedFishes[i].Type.price;
             }
+            IdleManager.instance.totalGain = num;
+            ScreenManager.instance.ChangeScreen(Screens.END);
             
 
         });
