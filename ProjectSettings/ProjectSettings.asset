@@ -58,8 +58,8 @@ PlayerSettings:
   iosAllowHTTPDownload: 1
   allowedAutorotateToPortrait: 1
   allowedAutorotateToPortraitUpsideDown: 1
-  allowedAutorotateToLandscapeRight: 1
-  allowedAutorotateToLandscapeLeft: 1
+  allowedAutorotateToLandscapeRight: 0
+  allowedAutorotateToLandscapeLeft: 0
   useOSAutorotation: 1
   use32BitDisplayBuffer: 1
   preserveFramebufferAlpha: 0
@@ -136,6 +136,7 @@ PlayerSettings:
     Others: 1
   bundleVersion: 1.0.2
   preloadedAssets:
+  - {fileID: 11400000, guid: ef50cc55890b25040942b29191d56dca, type: 2}
   - {fileID: 8679573143150377167, guid: 49f937ca1e3123c49a3af01c87bc9269, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
